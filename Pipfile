@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask-cors = "*"
+flask-jwt-extended = "*"
+flask-smorest = "*"
+flask-sqlalchemy = "*"
+sqlalchemy-utils = "*"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
+python-dotenv = "*"
+pymysql = "*"
+
+[dev-packages]
+pytest = "*"
+
+[requires]
+python_version = "3.8"
