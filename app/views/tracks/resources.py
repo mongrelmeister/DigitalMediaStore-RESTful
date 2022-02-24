@@ -38,7 +38,7 @@ class TrackById(MethodView):
     @blp.response(200, TrackSchema)
     @blp.doc(description="Get information for a single Track")
     def get(self, id):
-        """Get artist by ID"""
+        """Get track by ID"""
         ret = Track.find_by_id(id)
         return ret
 
@@ -58,7 +58,7 @@ class TrackById(MethodView):
     @blp.response(204)
     @blp.doc(description="Delete information for a single artist")
     def delete(self, id):
-        """Delete an existing artist"""
+        """Delete an existing track"""
         item = Track.find_by_id(id)
         blp.check_etag(item, TrackSchema)
         item.delete()
