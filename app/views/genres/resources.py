@@ -33,7 +33,7 @@ class Genres(MethodView):
 
 
 @blp.route("/<int:id>")
-class TrackById(MethodView):
+class GenreById(MethodView):
     @blp.etag
     @blp.response(200, GenreSchema)
     @blp.doc(description="Get information for a single Genre")
