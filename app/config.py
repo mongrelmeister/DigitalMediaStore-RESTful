@@ -13,7 +13,7 @@ class Config(object):
     TESTING = False
     PROPAGATE_EXCEPTIONS = os.environ["PROPAGATE_EXCEPTIONS"]
     SECRET_KEY = os.environ["SECRET_KEY"]
-    SQLALCHEMY_DATABASE_URI = os.environ["SQLALCHEMY_DATABASE_URI"]
+    SQLALCHEMY_DATABASE_URI = os.environ["SQLALCHEMY_DATABASE_URI"]    
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ["SQLALCHEMY_TRACK_MODIFICATIONS"]
 
 
@@ -25,6 +25,7 @@ class DesarrolloConfig(Config):
 class PruebasConfig(Config):
     DEBUG = True
     TESTING = True
+    SQLALCHEMY_DATABASE_URI = os.environ["SQLALCHEMY_DATABASE_URI_TEST"]
 
 
 class PreProduccionConfig(Config):

@@ -7,7 +7,7 @@ from app.config import app_config
 @pytest.fixture(scope="session")
 def flask_app():
     application = create_app(app_config["PRU"])
-    application.config["SQLALCHEMY_DATABASE_URI"] = "sqlite://"
+    application.config["SQLALCHEMY_DATABASE_URI_TEST"] = "sqlite:///test.db"
     application.config["TESTING"] = True
 
     from app.extensions.database import db

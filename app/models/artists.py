@@ -16,9 +16,9 @@ class Artist(db.Model, BaseModelMixin):
     def __str__(self):
         return self.name
 
-    # def save(self):
-    #     BaseModelMixin.save(self)
-    #     self.id
+    def save(self):
+        BaseModelMixin.save(self)
+        self.id
 
     @classmethod
     def find_artist_by_name(cls, name):

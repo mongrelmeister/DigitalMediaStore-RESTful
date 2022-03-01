@@ -33,6 +33,7 @@ def create_app(config, **kwargs):
         api.register_blueprint(albums.blp)
         api.register_blueprint(tracks.blp)
         api.register_blueprint(genres.blp)
+
     try:
         os.makedirs(app.instance_path)
     except OSError:

@@ -49,8 +49,8 @@ class AlbumById(MethodView):
     def put(self, data, id):
         """Update an existing album"""
         item = Album.find_by_id(id)
-        blp.check_etag(item, AlbumArgsSchema)
-        AlbumArgsSchema().update(item, data)
+        # blp.check_etag(item, AlbumArgsSchema)
+        AlbumSchema().update(item, data)
         item.update()
         return item
 

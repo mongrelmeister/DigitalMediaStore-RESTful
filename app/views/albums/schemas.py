@@ -9,7 +9,6 @@ class AlbumSchema(ma.SQLAlchemyAutoSchema):
     id = ma.auto_field(dump_only=True)
     artist = ma.Nested("ArtistSchema", dump_only=True)
 
-
 class AlbumArgsSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Album

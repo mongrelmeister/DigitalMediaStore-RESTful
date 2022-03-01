@@ -13,6 +13,10 @@ class Album(db.Model, BaseModelMixin):
     def __str__(self):
         return self.name
 
+    def save(self):
+        BaseModelMixin.save(self)
+        self.id
+        
     @classmethod
     def find_album_by_name(cls, title):
         return cls.simple_filter(title=title).first()

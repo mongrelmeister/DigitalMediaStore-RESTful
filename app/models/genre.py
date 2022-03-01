@@ -12,6 +12,10 @@ class Genre(db.Model, BaseModelMixin):
     def __str__(self):
         return self.name
 
+    def save(self):
+        BaseModelMixin.save(self)
+        self.id
+    
     @classmethod
     def find_genre_by_name(cls, name):
         return cls.simple_filter(name=name).first()
