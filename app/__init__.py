@@ -15,8 +15,8 @@ def create_app(config, **kwargs):
     logging.basicConfig(level=logging.INFO)
 
     app = Flask(__name__, **kwargs)
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
-
+    CORS(app, resources={r"/*": {"origins": "http://localhost:8080"}})    
+    
     app.config.from_object(config)
     # app.url_map.strict_slashes = False
 

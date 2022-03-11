@@ -1,4 +1,5 @@
 from flask.views import MethodView
+from flask_cors import CORS
 from flask_smorest import Page
 
 from app.extensions.api import CursorPage  # noqa:F401
@@ -8,6 +9,7 @@ from app.models.genre import Genre
 from .schemas import GenreSchema
 
 blp = Blueprint("Genres", __name__, url_prefix="/api/genres", description="API endpoints about Genres")
+CORS(blp)
 
 
 @blp.route("/")
@@ -54,11 +56,11 @@ class GenreById(MethodView):
         item.update()
         return item
 
-    @blp.etag
+    # @blp.etag    
     @blp.response(204)
     @blp.doc(description="Delete information for a single Genre")
     def delete(self, id):
         """Delete an existing Genre"""
         item = Genre.find_by_id(id)
-        blp.check_etag(item, GenreSchema)
+        # blp.check_etag(item, GenreSchema)
         item.delete()

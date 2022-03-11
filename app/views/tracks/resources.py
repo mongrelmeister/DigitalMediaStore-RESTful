@@ -1,4 +1,5 @@
 from flask.views import MethodView
+from flask_cors import CORS, cross_origin
 from flask_smorest import Page
 
 from app.extensions.api import CursorPage  # noqa:F401
@@ -8,6 +9,7 @@ from app.models.track import Track
 from .schemas import TrackSchema
 
 blp = Blueprint("Tracks", __name__, url_prefix="/api/tracks", description="API endpoints about TRACKS")
+CORS(blp)
 
 
 @blp.route("/")
@@ -54,11 +56,13 @@ class TrackById(MethodView):
         item.update()
         return item
 
-    @blp.etag
+    # Si existe etag se produce error 412 - Precondition Failed
+    # @blp.etag
+    @cross_origin(origins="*")
     @blp.response(204)
-    @blp.doc(description="Delete information for a single artist")
+    @blp.doc(description="Delete information for a single Track")
     def delete(self, id):
         """Delete an existing track"""
         item = Track.find_by_id(id)
-        blp.check_etag(item, TrackSchema)
+        # blp.check_etag(item, TrackSchema)
         item.delete()
